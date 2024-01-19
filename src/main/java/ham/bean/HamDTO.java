@@ -28,6 +28,9 @@ public class HamDTO {
 	@Column(name="store",nullable = true)
 	private int storeSeq;	
 	
+	@Column(name="size",nullable = true)
+	private int size;	
+	
 	@Column(name="make",nullable = false,length = 1000)
 	private String make;	
 	
