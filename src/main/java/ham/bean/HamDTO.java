@@ -25,7 +25,7 @@ public class HamDTO {
 	@Column(name="type",nullable = false)
 	private int type;
 	
-	@Column(name="store",nullable = true)
+	@Column(name="storeSeq",nullable = true)
 	private int storeSeq;	
 	
 	@Column(name="size",nullable = true)
