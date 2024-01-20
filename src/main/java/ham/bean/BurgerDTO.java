@@ -13,14 +13,14 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity//boardDTO라는 테이블 생성
-@Table(name="hamburger")//테이블 명을 자유자제로 바꿀수 있다
+@Entity
+@Table(name="burger")
 @Getter
 @Setter
-public class HamDTO {
+public class BurgerDTO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int hamburgerSeq;
+	private int burgerSeq;
 	
 	@Column(name="type",nullable = false)
 	private int type;
@@ -28,7 +28,7 @@ public class HamDTO {
 	@Column(name="storeSeq",nullable = true)
 	private int storeSeq;	
 	
-	@Column(name="size",nullable = true)
+	@Column(name="size",nullable = false)
 	private int size;	
 	
 	@Column(name="make",nullable = false,length = 1000)

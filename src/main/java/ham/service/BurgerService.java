@@ -2,13 +2,13 @@ package ham.service;
 
 import java.util.List;
 
-import ham.bean.HamDTO;
+import ham.bean.BurgerDTO;
 import ham.bean.IngreDTO;
 import ham.bean.StoreDTO;
 
 public interface BurgerService {
 
-	public void hamWrite(HamDTO hamDTO);
+	public void burgerWrite(BurgerDTO burgerDTO);
 
 	public void storeWrite(StoreDTO storeDTO);
 

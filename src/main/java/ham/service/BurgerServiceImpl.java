@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ham.bean.HamDTO;
+import ham.bean.BurgerDTO;
 import ham.bean.IngreDTO;
 import ham.bean.StoreDTO;
-import ham.dao.HamDAO;
+import ham.dao.BurgerDAO;
 import ham.dao.IngreDAO;
 import ham.dao.StoreDAO;
 
@@ -16,15 +16,15 @@ import ham.dao.StoreDAO;
 public class BurgerServiceImpl implements BurgerService {
 	
 	@Autowired
-	private HamDAO hamDAO;
+	private BurgerDAO burgerDAO;
 	@Autowired
 	private StoreDAO storeDAO;
 	@Autowired
 	private IngreDAO ingreDAO;
 
 	@Override
-	public void hamWrite(HamDTO hamDTO) {
-		hamDAO.save(hamDTO);
+	public void burgerWrite(BurgerDTO burgerDTO) {
+		burgerDAO.save(burgerDTO);
 	}
 
 	@Override

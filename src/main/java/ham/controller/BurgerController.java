@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import ham.bean.HamDTO;
+import ham.bean.BurgerDTO;
 import ham.bean.IngreDTO;
 import ham.bean.StoreDTO;
 import ham.service.BurgerService;
@@ -24,8 +24,8 @@ public class BurgerController {
 	private BurgerService burgerService;
 	
 	@PostMapping(value="burger/write")
-	public void hamWrite(@RequestBody HamDTO hamDTO) {
-		burgerService.hamWrite(hamDTO);
+	public void burgerWrite(@RequestBody BurgerDTO burgerDTO) {
+		burgerService.burgerWrite(burgerDTO);
 	}
 	
 	@PostMapping(value="store/write")
