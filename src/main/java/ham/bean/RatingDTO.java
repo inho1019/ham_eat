@@ -18,6 +18,9 @@ public class RatingDTO {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int ratingSeq;
 	
+	@Column(name="burgerSeq",nullable = false)
+	private int burgerSeq;
+	
 	@Column(name="userSeq",nullable = false)
 	private int userSeq;
 	

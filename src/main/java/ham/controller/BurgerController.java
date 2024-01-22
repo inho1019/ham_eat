@@ -25,8 +25,9 @@ public class BurgerController {
 	private BurgerService burgerService;
 	
 	@PostMapping(value="burger/write")
-	public void burgerWrite(@RequestBody BurgerDTO burgerDTO) {
+	public BurgerDTO burgerWrite(@RequestBody BurgerDTO burgerDTO) {
 		burgerService.burgerWrite(burgerDTO);
+		return burgerDTO;
 	}
 	
 	@PostMapping(value="store/write")
