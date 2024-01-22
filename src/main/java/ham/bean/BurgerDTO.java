@@ -31,10 +31,10 @@ public class BurgerDTO {
 	@Column(name="size",nullable = false)
 	private int size;
 	
-	@Column(name="single",nullable = false)
+	@Column(name="singlePrice",nullable = false)
 	private long singlePrice;	
 	
-	@Column(name="set",nullable = false)
+	@Column(name="setPrice",nullable = false)
 	private long setPrice;	
 	
 	@Column(name="make",nullable = false,length = 1000)
