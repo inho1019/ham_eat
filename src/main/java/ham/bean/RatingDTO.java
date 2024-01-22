@@ -1,5 +1,9 @@
 package ham.bean;
 
+import java.sql.Timestamp;
+
+import org.hibernate.annotations.CreationTimestamp;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,6 +31,10 @@ public class RatingDTO {
 	@Column(name="rate",nullable = false)
 	private float rate;
 	
-	@Column(name="context",nullable = true,length = 500)
-	private String context;
+	@Column(name="content",nullable = true,length = 500)
+	private String content;
+	
+	@Column(nullable = false)
+	@CreationTimestamp
+	private Timestamp logTime;
 }
