@@ -7,9 +7,11 @@ import org.springframework.stereotype.Service;
 
 import ham.bean.BurgerDTO;
 import ham.bean.IngreDTO;
+import ham.bean.RatingDTO;
 import ham.bean.StoreDTO;
 import ham.dao.BurgerDAO;
 import ham.dao.IngreDAO;
+import ham.dao.RatingDAO;
 import ham.dao.StoreDAO;
 
 @Service
@@ -21,6 +23,8 @@ public class BurgerServiceImpl implements BurgerService {
 	private StoreDAO storeDAO;
 	@Autowired
 	private IngreDAO ingreDAO;
+	@Autowired
+	private RatingDAO ratingDAO;
 
 	@Override
 	public void burgerWrite(BurgerDTO burgerDTO) {
@@ -30,6 +34,11 @@ public class BurgerServiceImpl implements BurgerService {
 	@Override
 	public void storeWrite(StoreDTO storeDTO) {
 		storeDAO.save(storeDTO);
+	}
+	
+	@Override
+	public void ratingWrite(RatingDTO ratingDTO) {
+		ratingDAO.save(ratingDTO);
 	}
 
 	@Override

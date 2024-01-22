@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ham.bean.BurgerDTO;
 import ham.bean.IngreDTO;
+import ham.bean.RatingDTO;
 import ham.bean.StoreDTO;
 import ham.service.BurgerService;
 
@@ -32,6 +33,11 @@ public class BurgerController {
 	public StoreDTO storeWrite(@RequestBody StoreDTO storeDTO) {
 		burgerService.storeWrite(storeDTO);
 		return storeDTO;
+	}
+	
+	@PostMapping(value="rating/write")
+	public void ratingWrite(@RequestBody RatingDTO ratingDTO) {
+		burgerService.ratingWrite(ratingDTO);
 	}
 	
 	@PostMapping(value="ingre/write")

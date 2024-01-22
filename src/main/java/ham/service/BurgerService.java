@@ -4,6 +4,7 @@ import java.util.List;
 
 import ham.bean.BurgerDTO;
 import ham.bean.IngreDTO;
+import ham.bean.RatingDTO;
 import ham.bean.StoreDTO;
 
 public interface BurgerService {
@@ -17,5 +18,7 @@ public interface BurgerService {
 	public void ingreWrite(IngreDTO ingreDTO);
 
 	public List<IngreDTO> ingreList();
+
+	public void ratingWrite(RatingDTO ratingDTO);
 
 }
