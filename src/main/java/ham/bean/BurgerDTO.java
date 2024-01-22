@@ -29,7 +29,13 @@ public class BurgerDTO {
 	private int storeSeq;	
 	
 	@Column(name="size",nullable = false)
-	private int size;	
+	private int size;
+	
+	@Column(name="single",nullable = false)
+	private long single;	
+	
+	@Column(name="set",nullable = false)
+	private long set;	
 	
 	@Column(name="make",nullable = false,length = 1000)
 	private String make;	
