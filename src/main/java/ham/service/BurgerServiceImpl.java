@@ -55,4 +55,9 @@ public class BurgerServiceImpl implements BurgerService {
 	public List<IngreDTO> ingreList() {
 		return ingreDAO.findAll();
 	}
+
+	@Override
+	public List<BurgerDTO> burgerList(int type) {
+		return burgerDAO.findAllByTypeOrderByBurgerSeqDesc(type);
+	}
 }

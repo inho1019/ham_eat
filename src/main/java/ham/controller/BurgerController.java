@@ -56,4 +56,9 @@ public class BurgerController {
 	public List<IngreDTO> ingreList() {
 		return burgerService.ingreList();
 	}
+	
+	@GetMapping(value="burger/list/{type}")
+	public List<BurgerDTO> burgerList(@PathVariable int type) {
+		return burgerService.burgerList(type);
+	}
 }

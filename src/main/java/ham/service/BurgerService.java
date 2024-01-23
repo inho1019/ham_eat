@@ -21,4 +21,6 @@ public interface BurgerService {
 
 	public void ratingWrite(RatingDTO ratingDTO);
 
+	public List<BurgerDTO> burgerList(int type);
+
 }
