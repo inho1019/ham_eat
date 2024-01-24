@@ -27,4 +27,6 @@ public interface BurgerService {
 
 	public List<RatingDTO> ratingListSeq(int burgerSeq);
 
+	public List<BurgerDTO> burgerListHome(int type);
+
 }

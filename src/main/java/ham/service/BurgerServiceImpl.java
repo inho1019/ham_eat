@@ -70,4 +70,9 @@ public class BurgerServiceImpl implements BurgerService {
 	public List<RatingDTO> ratingListSeq(int burgerSeq) {
 		return ratingDAO.findAllByBurgerSeqOrderByRatingSeqDesc(burgerSeq);
 	}
+
+	@Override
+	public List<BurgerDTO> burgerListHome(int type) {
+		return burgerDAO.findFirst5ByTypeOrderByBurgerSeqDesc(type);
+	}
 }
