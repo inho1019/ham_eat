@@ -73,6 +73,6 @@ public class BurgerServiceImpl implements BurgerService {
 
 	@Override
 	public List<BurgerDTO> burgerListHome(int type) {
-		return burgerDAO.findFirst5ByTypeOrderByBurgerSeqDesc(type);
+		return burgerDAO.findFirst3ByTypeOrderByBurgerSeqDesc(type);
 	}
 }

@@ -13,6 +13,6 @@ public interface BurgerDAO extends JpaRepository<BurgerDTO,Integer> {
 
 	List<BurgerDTO> findAllByTypeOrderByBurgerSeqDesc(@Param("type") int type);
 
-	List<BurgerDTO> findFirst5ByTypeOrderByBurgerSeqDesc(@Param("type") int type);
+	List<BurgerDTO> findFirst3ByTypeOrderByBurgerSeqDesc(@Param("type") int type);
 
 }
