@@ -62,12 +62,12 @@ public class BurgerController {
 		return burgerService.burgerList(type);
 	}
 	
-	@GetMapping(value="rating/list/{type}")
+	@GetMapping(value="rating/listType/{type}")
 	public List<RatingDTO> ratingListType(@PathVariable int type) {
 		return burgerService.ratingListType(type);
 	}
 	
-	@GetMapping(value="rating/list/{burgerSeq}")
+	@GetMapping(value="rating/listSeq/{burgerSeq}")
 	public List<RatingDTO> ratingListSeq(@PathVariable int burgerSeq) {
 		return burgerService.ratingListSeq(burgerSeq);
 	}
