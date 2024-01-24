@@ -28,6 +28,9 @@ public class RatingDTO {
 	@Column(name="userSeq",nullable = false)
 	private int userSeq;
 	
+	@Column(name="type",nullable = false)
+	private int type;
+	
 	@Column(name="rate",nullable = false)
 	private float rate;
 	
