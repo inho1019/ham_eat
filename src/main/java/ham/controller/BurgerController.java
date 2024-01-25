@@ -76,4 +76,9 @@ public class BurgerController {
 	public List<RatingDTO> ratingListSeq(@PathVariable int burgerSeq) {
 		return burgerService.ratingListSeq(burgerSeq);
 	}
+	
+	@GetMapping(value="burger/view/{burgerSeq}")
+	public BurgerDTO burgerView(@PathVariable int burgerSeq) {
+		return burgerService.burgerView(burgerSeq);
+	}
 }

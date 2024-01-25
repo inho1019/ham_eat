@@ -29,4 +29,6 @@ public interface BurgerService {
 
 	public List<BurgerDTO> burgerListHome(int type);
 
+	public BurgerDTO burgerView(int burgerSeq);
+
 }

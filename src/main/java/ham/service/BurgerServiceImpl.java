@@ -75,4 +75,9 @@ public class BurgerServiceImpl implements BurgerService {
 	public List<BurgerDTO> burgerListHome(int type) {
 		return burgerDAO.findFirst3ByTypeOrderByBurgerSeqDesc(type);
 	}
+
+	@Override
+	public BurgerDTO burgerView(int burgerSeq) {
+		return burgerDAO.findById(burgerSeq).orElse(null);
+	}
 }
