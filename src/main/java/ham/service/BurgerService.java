@@ -31,4 +31,6 @@ public interface BurgerService {
 
 	public BurgerDTO burgerView(int burgerSeq);
 
+	public StoreDTO storeGetSeq(int storeSeq);
+
 }

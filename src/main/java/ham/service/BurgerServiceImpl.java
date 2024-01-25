@@ -80,4 +80,9 @@ public class BurgerServiceImpl implements BurgerService {
 	public BurgerDTO burgerView(int burgerSeq) {
 		return burgerDAO.findById(burgerSeq).orElse(null);
 	}
+
+	@Override
+	public StoreDTO storeGetSeq(int storeSeq) {
+		return storeDAO.findById(storeSeq).orElse(null);
+	}
 }

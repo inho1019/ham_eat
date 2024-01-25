@@ -81,4 +81,9 @@ public class BurgerController {
 	public BurgerDTO burgerView(@PathVariable int burgerSeq) {
 		return burgerService.burgerView(burgerSeq);
 	}
+	
+	@GetMapping(value="store/getSeq/{storeSeq}")
+	public StoreDTO storeGetSeq(@PathVariable int storeSeq) {
+		return burgerService.storeGetSeq(storeSeq);
+	}
 }
