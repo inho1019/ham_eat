@@ -85,4 +85,9 @@ public class BurgerServiceImpl implements BurgerService {
 	public StoreDTO storeGetSeq(int storeSeq) {
 		return storeDAO.findById(storeSeq).orElse(null);
 	}
+
+	@Override
+	public void ratingDelete(int ratingSeq) {
+		ratingDAO.deleteById(ratingSeq);
+	}
 }

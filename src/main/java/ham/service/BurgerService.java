@@ -33,4 +33,6 @@ public interface BurgerService {
 
 	public StoreDTO storeGetSeq(int storeSeq);
 
+	public void ratingDelete(int ratingSeq);
+
 }

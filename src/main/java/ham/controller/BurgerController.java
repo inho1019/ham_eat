@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -85,5 +86,10 @@ public class BurgerController {
 	@GetMapping(value="store/getSeq/{storeSeq}")
 	public StoreDTO storeGetSeq(@PathVariable int storeSeq) {
 		return burgerService.storeGetSeq(storeSeq);
+	}
+	
+	@DeleteMapping(value="rating/delete/{ratingSeq}")
+	public void ratingDelete(@PathVariable int ratingSeq) {
+		burgerService.ratingDelete(ratingSeq);
 	}
 }
