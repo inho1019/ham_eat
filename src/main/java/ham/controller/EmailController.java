@@ -15,10 +15,20 @@ public class EmailController {
 
 	@Autowired
     private EmailService emailService;
+	
+	private class EmailDTO {
+	    private String email;
+
+	    public String getEmail() {
+	        return email;
+	    }
+	}
 
     @PostMapping("user/email")
-    public String mailConfirm(@RequestBody String email) throws UnsupportedEncodingException, MessagingException {
+    public String mailConfirm(@RequestBody EmailDTO emailDTO) throws UnsupportedEncodingException, MessagingException {
 
+    	String email = emailDTO.getEmail();
+    	
         String authCode = emailService.sendEmail(email);
         return authCode;
     }
