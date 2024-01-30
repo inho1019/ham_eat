@@ -16,7 +16,7 @@ public class EmailController {
 	@Autowired
     private EmailService emailService;
 	
-	private class EmailDTO {
+	private static class EmailDTO {
 	    private String email;
 
 	    public String getEmail() {
