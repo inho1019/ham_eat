@@ -1,12 +1,16 @@
 package ham.controller;
 
+import java.io.UnsupportedEncodingException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import ham.bean.UserDTO;
+import ham.service.EmailService;
 import ham.service.UserService;
+import jakarta.mail.MessagingException;
 
 @RestController
 public class UserController {
@@ -14,7 +18,19 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 		
-	@PostMapping
+	@Autowired
+    private EmailService emailService;
+	
+	@PostMapping("user/email")
+    public String mailConfirm(@RequestBody UserDTO userDTO) throws UnsupportedEncodingException, MessagingException {
+
+    	String email = userDTO.getEmail();
+    	
+        String authCode = emailService.sendEmail(email);
+        return authCode;
+    }
+	
+	@PostMapping("user/emailCheck")
 	public boolean checkEmail(@RequestBody UserDTO userDTO) {
 		String email = userDTO.getEmail();
 		
