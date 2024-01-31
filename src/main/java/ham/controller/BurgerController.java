@@ -18,7 +18,6 @@ import ham.bean.RatingDTO;
 import ham.bean.StoreDTO;
 import ham.service.BurgerService;
 
-@Controller
 @RestController
 public class BurgerController {
 	
