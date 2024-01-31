@@ -30,4 +30,9 @@ public class UserServiceImpl implements UserService {
 		}
  	}
 
+	@Override
+	public boolean checkName(String name) {
+		return userDAO.findByName(name).isPresent();
+	}
+
 }

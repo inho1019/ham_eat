@@ -8,4 +8,6 @@ public interface UserService {
 
 	public boolean register(UserDTO userDTO);
 
+	public boolean checkName(String name);
+
 }

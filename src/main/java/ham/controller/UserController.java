@@ -36,8 +36,14 @@ public class UserController {
 		
 		return userService.checkEmail(email);
 	}
+	@PostMapping("user/nameCheck")
+	public boolean checkName(@RequestBody UserDTO userDTO) {
+		String name = userDTO.getName();
+		
+		return userService.checkName(name);
+	}
 	
-	@PostMapping("user/Register")
+	@PostMapping("user/register")
 	public boolean register(@RequestBody UserDTO userDTO) {
 		return userService.register(userDTO);
 	}

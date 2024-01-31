@@ -12,4 +12,6 @@ import ham.bean.UserDTO;
 public interface UserDAO extends JpaRepository<UserDTO,Integer> {
 
 	public Optional<UserDTO> findByEmail(@Param("email") String email);
+
+	public Optional<UserDTO> findByName(@Param("name") String name);
 }
