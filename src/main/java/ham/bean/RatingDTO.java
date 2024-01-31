@@ -20,7 +20,7 @@ import lombok.Setter;
 public class RatingDTO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int ratingSeq;
+	private long ratingSeq;
 	
 	@Column(name="burgerSeq",nullable = false)
 	private int burgerSeq;

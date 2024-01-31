@@ -16,7 +16,7 @@ import lombok.Setter;
 public class StoreDTO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int storeSeq;
+	private long storeSeq;
 	
 	@Column(name="type",nullable = false)
 	private int type;

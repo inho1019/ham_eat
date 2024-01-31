@@ -36,4 +36,9 @@ public class UserController {
 		
 		return userService.checkEmail(email);
 	}
+	
+	@PostMapping("user/Register")
+	public boolean register(@RequestBody UserDTO userDTO) {
+		return userService.register(userDTO);
+	}
 }

@@ -1,6 +1,7 @@
 package ham.bean;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -20,16 +21,22 @@ import lombok.Setter;
 public class UserDTO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int userSeq;
+	private long userSeq;
 	
 	@Column(name="name",nullable = false,length = 100)//칼럼 조건 지정
 	private String name;
+
+	@Column(name="pwd",nullable = false,length = 30)//칼럼 조건 지정
+	private String pwd;
 	
 	@Column(name="email",nullable = false,length = 200)//칼럼 조건 지정
 	private String email;
 	
-	@Column(name="pwd",nullable = false,length = 30)//칼럼 조건 지정
-	private String pwd;
+	@Column(name="gender",nullable = false)//칼럼 조건 지정
+	private int gender;	
+	
+	@Column(name="birth",nullable = false)//칼럼 조건 지정
+	private LocalDate birth;
 	
 	@Column(name="own",nullable = false)
 	private int own;

@@ -20,7 +20,7 @@ import lombok.Setter;
 public class BurgerDTO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int burgerSeq;
+	private long burgerSeq;
 	
 	@Column(name="type",nullable = false)
 	private int type;

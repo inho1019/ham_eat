@@ -16,7 +16,7 @@ import lombok.Setter;
 public class IngreDTO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int ingreSeq;
+	private long ingreSeq;
 	
 	@Column(name="type",nullable = false)
 	private int type;
