@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
 		
 		if (loginDTO.isPresent()) {
 			UserDTO dto = loginDTO.orElse(null);
-			if( dto.getPwd().equals(passwordEncoder.encode(userDTO.getPwd()))) {
+			if( passwordEncoder.matches(userDTO.getPwd(), dto.getPwd()) ) {
 				map.put("bool",true);
 				map.put("userDTO",dto);
 			} else {				
