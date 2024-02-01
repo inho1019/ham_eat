@@ -7,6 +7,6 @@ import ham.bean.BurgerDTO;
 import ham.bean.IngreDTO;
 
 @Repository
-public interface IngreDAO extends JpaRepository<IngreDTO,Integer> {
+public interface IngreDAO extends JpaRepository<IngreDTO,Long> {
 
 }

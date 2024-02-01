@@ -58,7 +58,7 @@ public class BurgerController {
 	}
 	
 	@GetMapping(value="burger/list/{type}")
-	public List<BurgerDTO> burgerList(@PathVariable int type) {
+	public List<Object> burgerList(@PathVariable int type) {
 		return burgerService.burgerList(type);
 	}
 	
@@ -73,22 +73,22 @@ public class BurgerController {
 	}
 	
 	@GetMapping(value="rating/listSeq/{burgerSeq}")
-	public List<Object> ratingListSeq(@PathVariable int burgerSeq) {
+	public List<Object> ratingListSeq(@PathVariable long burgerSeq) {
 		return burgerService.ratingListSeq(burgerSeq);
 	}
 	
 	@GetMapping(value="burger/view/{burgerSeq}")
-	public BurgerDTO burgerView(@PathVariable int burgerSeq) {
+	public Object[] burgerView(@PathVariable long burgerSeq) {
 		return burgerService.burgerView(burgerSeq);
 	}
 	
 	@GetMapping(value="store/getSeq/{storeSeq}")
-	public StoreDTO storeGetSeq(@PathVariable int storeSeq) {
+	public StoreDTO storeGetSeq(@PathVariable long storeSeq) {
 		return burgerService.storeGetSeq(storeSeq);
 	}
 	
 	@DeleteMapping(value="rating/delete/{ratingSeq}")
-	public void ratingDelete(@PathVariable int ratingSeq) {
+	public void ratingDelete(@PathVariable long ratingSeq) {
 		burgerService.ratingDelete(ratingSeq);
 	}
 }

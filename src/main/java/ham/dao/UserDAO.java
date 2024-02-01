@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import ham.bean.UserDTO;
 
 @Repository
-public interface UserDAO extends JpaRepository<UserDTO,Integer> {
+public interface UserDAO extends JpaRepository<UserDTO,Long> {
 
 	public Optional<UserDTO> findByEmail(@Param("email") String email);
 

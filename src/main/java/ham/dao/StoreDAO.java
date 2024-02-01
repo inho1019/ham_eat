@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import ham.bean.StoreDTO;
 
 @Repository
-public interface StoreDAO extends JpaRepository<StoreDTO,Integer> {
+public interface StoreDAO extends JpaRepository<StoreDTO,Long> {
 
 	List<StoreDTO> findAllByTypeOrderByStoreSeqDesc(@Param("type") int type);
 

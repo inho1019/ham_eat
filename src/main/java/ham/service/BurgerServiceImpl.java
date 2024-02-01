@@ -57,18 +57,18 @@ public class BurgerServiceImpl implements BurgerService {
 	}
 
 	@Override
-	public List<BurgerDTO> burgerList(int type) {
-		return burgerDAO.findAllByTypeOrderByBurgerSeqDesc(type);
+	public List<Object> burgerList(int type) {
+		return burgerDAO.selectTypeJoin(type);
 	}
 
 	@Override
 	public List<Object> ratingListType(int type) {
-		return ratingDAO.findAllByTypeOrderByRatingSeqDesc(type);
+		return ratingDAO.selTypeJoin(type);
 	}
 
 	@Override
-	public List<Object> ratingListSeq(int burgerSeq) {
-		return ratingDAO.findAllByBurgerSeqOrderByRatingSeqDesc(burgerSeq);
+	public List<Object> ratingListSeq(long burgerSeq) {
+		return ratingDAO.selSeqJoin(burgerSeq);
 	}
 
 	@Override
@@ -77,17 +77,17 @@ public class BurgerServiceImpl implements BurgerService {
 	}
 
 	@Override
-	public BurgerDTO burgerView(int burgerSeq) {
-		return burgerDAO.findById(burgerSeq).orElse(null);
+	public Object[] burgerView(long burgerSeq) {
+		return burgerDAO.oneSeqJoin(burgerSeq);
 	}
 
 	@Override
-	public StoreDTO storeGetSeq(int storeSeq) {
+	public StoreDTO storeGetSeq(long storeSeq) {
 		return storeDAO.findById(storeSeq).orElse(null);
 	}
 
 	@Override
-	public void ratingDelete(int ratingSeq) {
+	public void ratingDelete(long ratingSeq) {
 		ratingDAO.deleteById(ratingSeq);
 	}
 }

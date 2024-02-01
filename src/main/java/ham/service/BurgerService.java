@@ -21,18 +21,18 @@ public interface BurgerService {
 
 	public void ratingWrite(RatingDTO ratingDTO);
 
-	public List<BurgerDTO> burgerList(int type);
+	public List<Object> burgerList(int type);
 
 	public List<Object> ratingListType(int type);
 
-	public List<Object> ratingListSeq(int burgerSeq);
+	public List<Object> ratingListSeq(long burgerSeq);
 
 	public List<BurgerDTO> burgerListHome(int type);
 
-	public BurgerDTO burgerView(int burgerSeq);
+	public Object[] burgerView(long burgerSeq);
 
-	public StoreDTO storeGetSeq(int storeSeq);
+	public StoreDTO storeGetSeq(long storeSeq);
 
-	public void ratingDelete(int ratingSeq);
+	public void ratingDelete(long ratingSeq);
 
 }
