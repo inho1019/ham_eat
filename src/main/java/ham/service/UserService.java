@@ -14,4 +14,6 @@ public interface UserService {
 
 	public Map<String, Object> login(UserDTO userDTO);
 
+	public UserDTO getSeq(int userSeq);
+
 }

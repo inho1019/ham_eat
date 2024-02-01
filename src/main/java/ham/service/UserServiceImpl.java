@@ -67,4 +67,9 @@ public class UserServiceImpl implements UserService {
 		return map;
 	}
 
+	@Override
+	public UserDTO getSeq(int userSeq) {
+		return userDAO.findById(userSeq).orElse(null);
+	}
+
 }

@@ -4,6 +4,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -52,5 +54,10 @@ public class UserController {
 	@PostMapping("user/login")
 	public Map<String,Object> login(@RequestBody UserDTO userDTO) {
 		return userService.login(userDTO);
+	}
+	
+	@GetMapping(value="user/getSeq/{userSeq}")
+	public UserDTO getSeq(@PathVariable int userSeq) {
+		return userService.getSeq(userSeq);
 	}
 }
