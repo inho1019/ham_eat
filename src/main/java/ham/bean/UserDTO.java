@@ -26,7 +26,7 @@ public class UserDTO {
 	@Column(name="name",nullable = false,length = 100)//칼럼 조건 지정
 	private String name;
 
-	@Column(name="pwd",nullable = false,length = 30)//칼럼 조건 지정
+	@Column(name="pwd",nullable = false,length = 200)//칼럼 조건 지정
 	private String pwd;
 	
 	@Column(name="email",nullable = false,length = 200)//칼럼 조건 지정
