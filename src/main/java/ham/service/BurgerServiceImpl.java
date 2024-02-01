@@ -62,12 +62,12 @@ public class BurgerServiceImpl implements BurgerService {
 	}
 
 	@Override
-	public List<RatingDTO> ratingListType(int type) {
+	public List<Object> ratingListType(int type) {
 		return ratingDAO.findAllByTypeOrderByRatingSeqDesc(type);
 	}
 
 	@Override
-	public List<RatingDTO> ratingListSeq(int burgerSeq) {
+	public List<Object> ratingListSeq(int burgerSeq) {
 		return ratingDAO.findAllByBurgerSeqOrderByRatingSeqDesc(burgerSeq);
 	}
 

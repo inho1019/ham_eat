@@ -23,9 +23,9 @@ public interface BurgerService {
 
 	public List<BurgerDTO> burgerList(int type);
 
-	public List<RatingDTO> ratingListType(int type);
+	public List<Object> ratingListType(int type);
 
-	public List<RatingDTO> ratingListSeq(int burgerSeq);
+	public List<Object> ratingListSeq(int burgerSeq);
 
 	public List<BurgerDTO> burgerListHome(int type);
 
