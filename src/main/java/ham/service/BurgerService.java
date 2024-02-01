@@ -29,7 +29,7 @@ public interface BurgerService {
 
 	public List<BurgerDTO> burgerListHome(int type);
 
-	public Object[] burgerView(long burgerSeq);
+	public Object burgerView(long burgerSeq);
 
 	public StoreDTO storeGetSeq(long storeSeq);
 

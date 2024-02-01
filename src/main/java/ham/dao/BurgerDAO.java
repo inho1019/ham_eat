@@ -18,6 +18,6 @@ public interface BurgerDAO extends JpaRepository<BurgerDTO,Long> {
 	List<BurgerDTO> findFirst3ByTypeOrderByBurgerSeqDesc(@Param("type") int type);
 
 	@Query("SELECT b, u FROM BurgerDTO b JOIN UserDTO u ON b.userSeq = u.userSeq WHERE b.burgerSeq = :burgerSeq")
-	Object[] oneSeqJoin(@Param("burgerSeq") long burgerSeq);
+	Object oneSeqJoin(@Param("burgerSeq") long burgerSeq);
 
 }

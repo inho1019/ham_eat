@@ -78,7 +78,7 @@ public class BurgerController {
 	}
 	
 	@GetMapping(value="burger/view/{burgerSeq}")
-	public Object[] burgerView(@PathVariable long burgerSeq) {
+	public Object burgerView(@PathVariable long burgerSeq) {
 		return burgerService.burgerView(burgerSeq);
 	}
 	
