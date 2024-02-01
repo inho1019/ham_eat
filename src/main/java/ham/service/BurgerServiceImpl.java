@@ -77,7 +77,7 @@ public class BurgerServiceImpl implements BurgerService {
 	}
 
 	@Override
-	public List<Object> burgerView(long burgerSeq) {
+	public Object[] burgerView(long burgerSeq) {
 		return burgerDAO.oneSeqJoin(burgerSeq);
 	}
 
