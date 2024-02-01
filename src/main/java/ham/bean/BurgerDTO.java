@@ -31,7 +31,7 @@ public class BurgerDTO {
 	private int storeSeq;	
 	
 	@ManyToOne
-    @JoinColumn(name="userSeq", nullable = true)
+    @JoinColumn(name="userSeq", nullable = false)
 	private UserDTO user;	
 	
 	@Column(name="size",nullable = false)

@@ -28,7 +28,7 @@ public class RatingDTO {
 	private int burgerSeq;
 	
 	@ManyToOne
-    @JoinColumn(name="userSeq", nullable = true)
+    @JoinColumn(name="userSeq", nullable = false)
 	private UserDTO user;
 	
 	@Column(name="type",nullable = false)
