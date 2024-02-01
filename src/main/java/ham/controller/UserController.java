@@ -1,6 +1,7 @@
 package ham.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,5 +47,10 @@ public class UserController {
 	@PostMapping("user/register")
 	public boolean register(@RequestBody UserDTO userDTO) {
 		return userService.register(userDTO);
+	}
+	
+	@PostMapping("user/login")
+	public Map<String,Object> login(@RequestBody UserDTO userDTO) {
+		return userService.login(userDTO);
 	}
 }
