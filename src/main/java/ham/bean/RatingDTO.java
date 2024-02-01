@@ -9,6 +9,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,8 +27,9 @@ public class RatingDTO {
 	@Column(name="burgerSeq",nullable = false)
 	private int burgerSeq;
 	
-	@Column(name="userSeq",nullable = false)
-	private int userSeq;
+	@ManyToOne
+    @JoinColumn(name="userSeq", nullable = true)
+	private UserDTO user;
 	
 	@Column(name="type",nullable = false)
 	private int type;
