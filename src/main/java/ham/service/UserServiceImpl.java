@@ -1,5 +1,9 @@
 package ham.service;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -39,6 +43,26 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean checkName(String name) {
 		return userDAO.findByName(name).isPresent();
+	}
+
+	@Override
+	public Map<String, Object> login(UserDTO userDTO) {
+		Map<String,Object> map = new HashMap<>();
+		Optional<UserDTO> loginDTO = userDAO.findByEmail(userDTO.getEmail());
+		
+		if (loginDTO.isPresent()) {
+			UserDTO dto = loginDTO.orElse(null);
+			if( dto.getPwd().equals(passwordEncoder.encode(userDTO.getPwd()))) {
+				map.put("bool",true);
+				map.put("userDTO",dto);
+			} else {				
+				map.put("bool",false);
+			}
+		} else {
+			map.put("bool",false);
+		}
+		
+		return map;
 	}
 
 }
