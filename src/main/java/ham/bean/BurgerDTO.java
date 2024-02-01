@@ -28,11 +28,10 @@ public class BurgerDTO {
 	private int type;
 	
 	@Column(name="storeSeq",nullable = true)
-	private int storeSeq;	
+	private long storeSeq;	
 	
-	@ManyToOne
-    @JoinColumn(name="userSeq", nullable = false)
-	private UserDTO user;	
+	@Column(name="userSeq",nullable = true)
+	private long userSeq;	
 	
 	@Column(name="size",nullable = false)
 	private int size;

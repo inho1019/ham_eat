@@ -38,7 +38,6 @@ public class BurgerController {
 	
 	@PostMapping(value="rating/write")
 	public void ratingWrite(@RequestBody RatingDTO ratingDTO) {
-		System.out.println(ratingDTO.getUser());
 		burgerService.ratingWrite(ratingDTO);
 	}
 	

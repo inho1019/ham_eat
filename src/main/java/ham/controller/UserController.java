@@ -55,9 +55,4 @@ public class UserController {
 	public Map<String,Object> login(@RequestBody UserDTO userDTO) {
 		return userService.login(userDTO);
 	}
-	
-	@GetMapping(value="user/getSeq/{userSeq}")
-	public UserDTO getSeq(@PathVariable int userSeq) {
-		return userService.getSeq(userSeq);
-	}
 }

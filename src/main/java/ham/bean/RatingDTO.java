@@ -25,11 +25,10 @@ public class RatingDTO {
 	private long ratingSeq;
 	
 	@Column(name="burgerSeq",nullable = false)
-	private int burgerSeq;
+	private long burgerSeq;
 	
-	@ManyToOne
-    @JoinColumn(name="userSeq", nullable = false)
-	private UserDTO user;
+	@Column(name="userSeq",nullable = false)
+	private long userSeq;
 	
 	@Column(name="type",nullable = false)
 	private int type;
