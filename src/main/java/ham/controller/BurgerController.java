@@ -1,5 +1,6 @@
 package ham.controller;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +50,9 @@ public class BurgerController {
 	
 	@GetMapping(value="store/list/{type}")
 	public List<StoreDTO> storeList(@PathVariable int type) {
-		return burgerService.storeList(type);
+		List<StoreDTO> list = burgerService.storeList(type);
+		Collections.reverse(list);
+		return list;
 	}
 	
 	@GetMapping(value="ingre/list")
