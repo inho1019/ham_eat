@@ -51,7 +51,7 @@ public class BurgerController {
 	@GetMapping(value="store/list/{type}")
 	public List<StoreDTO> storeList(@PathVariable int type) {
 		List<StoreDTO> list = burgerService.storeList(type);
-		Collections.reverse(list);
+		if(type == 0) Collections.reverse(list);
 		return list;
 	}
 	
