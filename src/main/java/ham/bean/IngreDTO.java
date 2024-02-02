@@ -27,6 +27,15 @@ public class IngreDTO {
 	@Column(name="width",nullable = false)
 	private int width;
 	
+	@Column(name="carbohydrates",nullable = false)
+	private float carbohydrates;
+	
+	@Column(name="protein",nullable = false)
+	private float protein;
+	
+	@Column(name="lipid",nullable = false)
+	private float lipid;
+	
 	@Column(name="height",nullable = false)
 	private int height;
 	
