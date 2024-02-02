@@ -20,10 +20,10 @@ public interface RatingDAO extends JpaRepository<RatingDTO,Long> {
 //			+ "FROM RatingDTO r JOIN UserDTO u ON r.userSeq = u.userSeq WHERE r.burgerSeq = :burgerSeq ORDER BY r.ratingSeq DESC")
 //	List<RatingDTO> findAllByBurgerSeqOrderByRatingSeqDesc(@Param("burgerSeq") long burgerSeq);
 	
-	@Query("SELECT r, u FROM RatingDTO r JOIN UserDTO u ON r.userSeq = u.userSeq WHERE r.type = :type ORDER BY r.ratingSeq DESC")
+	@Query("SELECT r, u FROM RatingDTO r LEFT JOIN UserDTO u ON r.userSeq = u.userSeq WHERE r.type = :type ORDER BY r.ratingSeq DESC")
 	List<Object> selTypeJoin(@Param("type")int type);
 	
-	@Query("SELECT r, u FROM RatingDTO r JOIN UserDTO u ON r.userSeq = u.userSeq WHERE r.burgerSeq = :burgerSeq ORDER BY r.ratingSeq DESC")
+	@Query("SELECT r, u FROM RatingDTO r LEFT JOIN UserDTO u ON r.userSeq = u.userSeq WHERE r.burgerSeq = :burgerSeq ORDER BY r.ratingSeq DESC")
 	List<Object> selSeqJoin(@Param("burgerSeq") long burgerSeq);
 	
 }
