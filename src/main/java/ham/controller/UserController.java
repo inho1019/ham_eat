@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,6 +15,8 @@ import ham.bean.UserDTO;
 import ham.service.EmailService;
 import ham.service.UserService;
 import jakarta.mail.MessagingException;
+import lombok.Getter;
+import lombok.Setter;
 
 @RestController
 public class UserController {
@@ -23,6 +26,14 @@ public class UserController {
 		
 	@Autowired
     private EmailService emailService;
+	
+	@Getter
+	@Setter
+	public static class UpdateDTO {
+		private int field;
+		private String value;
+		private long userSeq;
+    }
 	
 	@PostMapping("user/email")
     public String mailConfirm(@RequestBody UserDTO userDTO) throws UnsupportedEncodingException, MessagingException {
@@ -54,5 +65,13 @@ public class UserController {
 	@PostMapping("user/login")
 	public Map<String,Object> login(@RequestBody UserDTO userDTO) {
 		return userService.login(userDTO);
+	}
+	
+	@PutMapping("user/update")
+	public boolean update(@RequestBody UpdateDTO updateDTO) {
+		int field = updateDTO.getField();
+		String value = updateDTO.getValue();
+		long userSeq = updateDTO.getUserSeq();
+ 		return userService.update(field,value,userSeq);
 	}
 }

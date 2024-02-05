@@ -9,6 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import ham.bean.UserDTO;
+import ham.controller.UserController.UpdateDTO;
 import ham.dao.UserDAO;
 
 @Service
@@ -63,5 +64,27 @@ public class UserServiceImpl implements UserService {
 		}
 		
 		return map;
+	}
+
+	@Override
+	public boolean update(int field, String value, long userSeq) {
+		
+		UserDTO userDTO = userDAO.findById(userSeq).orElse(null);
+		
+		try {
+			if(field == 0) {
+				userDTO.setName(value);
+			}else if(field == 1) {
+				userDTO.setPwd(passwordEncoder.encode(value));
+			}
+			
+			userDAO.save(userDTO);
+			
+			return true;
+		} catch(Exception e) {
+			System.out.println("회원가입 중 오류 발생 :: " + e);
+			
+			return false;
+		}
 	}
 }
