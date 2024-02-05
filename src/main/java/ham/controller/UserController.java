@@ -81,8 +81,8 @@ public class UserController {
 		return userService.checkPwd(userDTO);
 	}
 	
-	@DeleteMapping("user/delete")
-	public boolean delete(@RequestBody UserDTO userDTO) {
-		return userService.delete(userDTO);
+	@DeleteMapping("user/delete/{userSeq}")
+	public boolean delete(@PathVariable Long userSeq) {
+		return userService.delete(userSeq);
 	}
 }

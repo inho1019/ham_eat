@@ -99,9 +99,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean delete(UserDTO userDTO) {
+	public boolean delete(long userSeq) {
 		try {
-			userDAO.deleteById(userDTO.getUserSeq());
+			userDAO.deleteById(userSeq);
 			
 			return true;
 		} catch(Exception e) {

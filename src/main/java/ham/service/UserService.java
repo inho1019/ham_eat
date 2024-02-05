@@ -19,6 +19,6 @@ public interface UserService {
 
 	public boolean checkPwd(UserDTO userDTO);
 
-	public boolean delete(UserDTO userDTO);
+	public boolean delete(long userSeq);
 
 }
