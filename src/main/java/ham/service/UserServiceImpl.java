@@ -82,7 +82,30 @@ public class UserServiceImpl implements UserService {
 			
 			return true;
 		} catch(Exception e) {
-			System.out.println("회원가입 중 오류 발생 :: " + e);
+			System.out.println("닉네임 변경 중 오류 발생 :: " + e);
+			
+			return false;
+		}
+	}
+
+	@Override
+	public boolean checkPwd(UserDTO userDTO) {
+		if( passwordEncoder.matches(userDTO.getPwd(), 
+				userDAO.findById(userDTO.getUserSeq()).orElse(null).getPwd()) ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	@Override
+	public boolean delete(UserDTO userDTO) {
+		try {
+			userDAO.deleteById(userDTO.getUserSeq());
+			
+			return true;
+		} catch(Exception e) {
+			System.out.println("회원 탈퇴 중 오류 발생 :: " + e);
 			
 			return false;
 		}

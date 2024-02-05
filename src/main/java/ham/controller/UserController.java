@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -73,5 +74,15 @@ public class UserController {
 		String value = updateDTO.getValue();
 		long userSeq = updateDTO.getUserSeq();
  		return userService.update(field,value,userSeq);
+	}
+	
+	@PostMapping("user/checkPwd")
+	public boolean checkPwd(@RequestBody UserDTO userDTO) {
+		return userService.checkPwd(userDTO);
+	}
+	
+	@DeleteMapping("user/delete")
+	public boolean delete(@RequestBody UserDTO userDTO) {
+		return userService.delete(userDTO);
 	}
 }

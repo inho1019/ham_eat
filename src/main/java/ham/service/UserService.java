@@ -17,4 +17,8 @@ public interface UserService {
 
 	public boolean update(int field, String value, long userSeq);
 
+	public boolean checkPwd(UserDTO userDTO);
+
+	public boolean delete(UserDTO userDTO);
+
 }
