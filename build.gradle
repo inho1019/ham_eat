@@ -24,6 +24,7 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-rest'//rest api 사용
 	implementation 'org.springframework.boot:spring-boot-starter-mail'//이메일 인증 의존성
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'//이메일 인증용 타임리프
 	implementation 'org.springframework.boot:spring-boot-starter-security'//비밀번호 암호화
