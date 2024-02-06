@@ -1,5 +1,6 @@
 package ham.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class KaKaoController {
     }
 	
 	@PostMapping("map/search")
-	public Object search(@RequestBody SearchDTO searchDTO) throws URISyntaxException {
+	public Object search(@RequestBody SearchDTO searchDTO) throws URISyntaxException, UnsupportedEncodingException {
 		String search = searchDTO.getSearch();
 		return kakaoService.searchPlaces(search);
 	}

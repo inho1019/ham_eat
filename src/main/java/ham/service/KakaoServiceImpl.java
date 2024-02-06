@@ -1,7 +1,10 @@
 package ham.service;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.List;
 
@@ -17,8 +20,9 @@ import org.springframework.web.client.RestTemplate;
 public class KakaoServiceImpl implements KakaoService {
 
 	@Override
-	public Object searchPlaces(String query) throws URISyntaxException {
-        URI uri = new URI("https://dapi.kakao.com/v2/local/search/keyword.json?query=" + query);
+	public Object searchPlaces(String query) throws URISyntaxException, UnsupportedEncodingException {
+		String encodedQuery = URLEncoder.encode(query, StandardCharsets.UTF_8.toString());
+	    URI uri = new URI("https://dapi.kakao.com/v2/local/search/keyword.json?query=" + encodedQuery);
         
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "KakaoAK 56386d89f0ccd13a7cac988bfddf6879");
@@ -31,7 +35,7 @@ public class KakaoServiceImpl implements KakaoService {
                 Object.class
         );
         
-        return responseEntity;
+        return responseEntity.getBody();
     }
 	
 
