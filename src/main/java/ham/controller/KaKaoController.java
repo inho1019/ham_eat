@@ -3,12 +3,13 @@ package ham.controller;
 import java.net.URISyntaxException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import ham.service.KakaoService;
+import lombok.Getter;
+import lombok.Setter;
 
 @RestController
 public class KaKaoController {
@@ -16,8 +17,15 @@ public class KaKaoController {
 	@Autowired
 	private KakaoService kakaoService;
 	
-	@GetMapping("map/search")
-	public Object search(@RequestParam("search") String search ) throws URISyntaxException {
+	@Getter
+	@Setter
+	public static class SearchDTO {
+		private String search;
+    }
+	
+	@PostMapping("map/search")
+	public Object search(@RequestBody SearchDTO searchDTO) throws URISyntaxException {
+		String search = searchDTO.getSearch();
 		return kakaoService.searchPlaces(search);
 	}
 }
