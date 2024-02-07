@@ -1,6 +1,7 @@
 package ham.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -89,5 +90,12 @@ public class BurgerServiceImpl implements BurgerService {
 	@Override
 	public void ratingDelete(long ratingSeq) {
 		ratingDAO.deleteById(ratingSeq);
+	}
+
+	@Override
+	public boolean storeCheck(String placeId) {
+		Optional<StoreDTO> storeDTO = storeDAO.findByPlaceId(placeId);
+		
+		return storeDTO.isPresent();
 	}
 }

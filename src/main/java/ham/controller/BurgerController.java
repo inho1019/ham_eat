@@ -90,6 +90,11 @@ public class BurgerController {
 		return burgerService.storeGetSeq(storeSeq);
 	}
 	
+	@GetMapping(value="store/check/{placeId}")
+	public boolean storeCheck(@PathVariable String placeId) {
+		return burgerService.storeCheck(placeId);
+	}
+	
 	@DeleteMapping(value="rating/delete/{ratingSeq}")
 	public void ratingDelete(@PathVariable long ratingSeq) {
 		burgerService.ratingDelete(ratingSeq);

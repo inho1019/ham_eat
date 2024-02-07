@@ -35,4 +35,6 @@ public interface BurgerService {
 
 	public void ratingDelete(long ratingSeq);
 
+	public boolean storeCheck(String placeId);
+
 }
