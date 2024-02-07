@@ -29,4 +29,10 @@ public class StoreDTO {
 	
 	@Column(name="address",nullable = true,length = 1000)
 	private String address;	
+	
+	@Column(name="longitude",nullable = true,length = 100)
+	private String longitude;
+	
+	@Column(name="latitude",nullable = true,length = 100)
+	private String latitude;
 }
