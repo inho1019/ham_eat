@@ -38,4 +38,7 @@ public class StoreDTO {
 
 	@Column(name="placeUrl",nullable = true,length = 200)
 	private String placeUrl;
+	
+	@Column(name="placeId",nullable = true)
+	private long placeId;
 }
