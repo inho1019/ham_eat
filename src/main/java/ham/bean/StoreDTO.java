@@ -39,6 +39,6 @@ public class StoreDTO {
 	@Column(name="placeUrl",nullable = true,length = 200)
 	private String placeUrl;
 	
-	@Column(name="placeId",nullable = true)
-	private long placeId;
+	@Column(name="placeId",nullable = true,length = 100)
+	private String placeId;
 }
