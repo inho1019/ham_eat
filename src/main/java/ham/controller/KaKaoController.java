@@ -22,11 +22,18 @@ public class KaKaoController {
 	@Setter
 	public static class SearchDTO {
 		private String search;
+		private String latitude;
+		private String longitude;		
     }
 	
 	@PostMapping("map/search")
 	public Object search(@RequestBody SearchDTO searchDTO) throws URISyntaxException, UnsupportedEncodingException {
 		String search = searchDTO.getSearch();
 		return kakaoService.searchPlaces(search);
+	}
+	
+	@PostMapping("map/current")
+	public Object current(@RequestBody SearchDTO searchDTO) throws URISyntaxException, UnsupportedEncodingException {
+		return kakaoService.currentPlaces(searchDTO);
 	}
 }
