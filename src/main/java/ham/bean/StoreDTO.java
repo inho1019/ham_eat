@@ -35,4 +35,7 @@ public class StoreDTO {
 	
 	@Column(name="latitude",nullable = true,length = 100)
 	private String latitude;
+
+	@Column(name="placeUrl",nullable = true,length = 200)
+	private String placeUrl;
 }
