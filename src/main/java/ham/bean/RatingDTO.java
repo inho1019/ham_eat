@@ -37,6 +37,21 @@ public class RatingDTO {
 	@Column(name="content",nullable = true,length = 500)
 	private String content;
 	
+	@Column(name="placeName",nullable = true,length = 100)
+	private String placeName;
+	
+	@Column(name="longitude",nullable = true,length = 100)
+	private String longitude;
+	
+	@Column(name="latitude",nullable = true,length = 100)
+	private String latitude;
+
+	@Column(name="placeUrl",nullable = true,length = 200)
+	private String placeUrl;
+	
+	@Column(name="placeId",nullable = true,length = 100)
+	private String placeId;
+	
 	@Column(nullable = false)
 	@CreationTimestamp
 	private Timestamp logTime;
