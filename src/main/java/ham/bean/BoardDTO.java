@@ -28,11 +28,14 @@ public class BoardDTO {
 	@Column(name="userSeq",nullable = true)
 	private long userSeq;	
 
-	@Column(name="title",nullable = false,length = 100)//칼럼 조건 지정
+	@Column(name="title",nullable = false,length = 100)
 	private String title;
 	
-	@Column(name="content",nullable = false,length = 1000)//칼럼 조건 지정
+	@Column(name="content",nullable = false,columnDefinition = "TEXT")
 	private String content;
+
+	@Column(name="url",nullable = false,columnDefinition = "TEXT")
+	private String url;
 	
 	@Column(name="hit",nullable = false)
 	private int hit;
