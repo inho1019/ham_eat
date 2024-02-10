@@ -52,6 +52,9 @@ public class RatingDTO {
 	@Column(name="placeId",nullable = true,length = 100)
 	private String placeId;
 	
+	@Column(name="address",nullable = true,length = 1000)
+	private String address;	
+	
 	@Column(nullable = false)
 	@CreationTimestamp
 	private Timestamp logTime;
