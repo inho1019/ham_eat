@@ -14,7 +14,7 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 	
-	@PostMapping(value="burger/write")
+	@PostMapping(value="board/write")
 	public BoardDTO boardWrite(@RequestBody BoardDTO boardDTO) {
 		boardService.boardWrite(boardDTO);
 		return boardDTO;
