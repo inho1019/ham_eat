@@ -10,4 +10,10 @@ public interface BoardService {
 
 	public List<Object> boardList(int type);
 
+	public Object boardView(long boardSeq);
+
+	public void boardUpdate(BoardDTO boardDTO);
+
+	public void boardDelete(long boardSeq);
+
 }
