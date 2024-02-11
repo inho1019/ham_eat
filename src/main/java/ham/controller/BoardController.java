@@ -26,7 +26,7 @@ public class BoardController {
 		return boardDTO;
 	}
 	
-	@PostMapping(value="board/fav")
+	@PutMapping(value="board/fav")
 	public void boardFav(@RequestBody BoardDTO boardDTO) {
 		boardService.boardFav(boardDTO);
 	}
