@@ -26,6 +26,11 @@ public class BoardController {
 		return boardDTO;
 	}
 	
+	@PostMapping(value="board/fav")
+	public void boardFav(@RequestBody BoardDTO boardDTO) {
+		boardService.boardFav(boardDTO);
+	}
+	
 	@GetMapping(value="board/list/{type}")
 	public List<Object> boardList(@PathVariable int type) {
 		return boardService.boardList(type);

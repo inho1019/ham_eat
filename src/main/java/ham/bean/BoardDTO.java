@@ -40,8 +40,8 @@ public class BoardDTO {
 	@Column(name="hit",nullable = false)
 	private int hit;
 	
-	@Column(name="fav",nullable = false)
-	private int fav;
+	@Column(name="fav",nullable = false,columnDefinition = "TEXT")
+	private String fav;
 	
 	@Column(nullable = false)
 	@CreationTimestamp

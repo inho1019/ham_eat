@@ -16,4 +16,5 @@ public interface BoardService {
 
 	public void boardDelete(long boardSeq);
 
+	public void boardFav(BoardDTO boardDTO);
 }

@@ -27,6 +27,13 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public Object boardView(long boardSeq) {
+		Optional<BoardDTO> opDTO = boardDAO.findById(boardSeq);
+		
+		opDTO.ifPresent(dto -> {
+			dto.setHit(dto.getHit() + 1);
+			
+	        boardDAO.save(dto);
+	    });
 		return boardDAO.oneSeqJoin(boardSeq);
 	}
 
@@ -45,6 +52,17 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void boardDelete(long boardSeq) {
 		boardDAO.deleteById(boardSeq);
+	}
+
+	@Override
+	public void boardFav(BoardDTO boardDTO) {
+		Optional<BoardDTO> opDTO = boardDAO.findById(boardDTO.getBoardSeq());
+		
+		opDTO.ifPresent(dto -> {
+			dto.setFav(boardDTO.getFav());
+			
+	        boardDAO.save(dto);
+	    });
 	}
 
 }
