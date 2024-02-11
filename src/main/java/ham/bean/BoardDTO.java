@@ -40,6 +40,9 @@ public class BoardDTO {
 	@Column(name="hit",nullable = false)
 	private int hit;
 	
+	@Column(name="like",nullable = false)
+	private int like;
+	
 	@Column(nullable = false)
 	@CreationTimestamp
 	private Timestamp logTime;
