@@ -1,6 +1,7 @@
 package ham.service;
 
 import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
@@ -104,6 +105,15 @@ public class BoardServiceImpl implements BoardService {
 		        return 0;
 		    }
 		});
+		
+		boardList.sort(Comparator.comparing(board -> {
+		    try {
+		        return objectMapper.writeValueAsString(board.getFav()).length();
+		    } catch (JsonProcessingException e) {
+		        e.printStackTrace();
+		        return 0;
+		    }
+		}, Comparator.reverseOrder()));
 		
 		return getRandomElement(boardList.subList(0, Math.min(5, boardList.size())));
 	}
