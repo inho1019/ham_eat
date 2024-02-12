@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import ham.bean.BoardDTO;
+import ham.bean.BurgerDTO;
 import ham.service.BoardService;
 
 @RestController
@@ -36,6 +37,16 @@ public class BoardController {
 		return boardService.boardList(type);
 	}
 	
+	@GetMapping(value="board/listHome/{type}")
+	public List<BoardDTO> boardListHome(@PathVariable int type) {
+		return boardService.boardListHome(type);
+	}
+	
+	@GetMapping(value="board/best/{type}")
+	public BoardDTO boardBest(@PathVariable int type) {
+		return boardService.boardBest(type);
+	}
+	
 	@GetMapping(value="board/view/{boardSeq}")
 	public Object boardView(@PathVariable long boardSeq) {
 		return boardService.boardView(boardSeq);
@@ -43,10 +54,13 @@ public class BoardController {
 	
 	@PutMapping(value="board/update")
 	public void boardUpdate(@RequestBody BoardDTO boardDTO) {
+		
 		boardService.boardUpdate(boardDTO);
 	}
 	@DeleteMapping(value="board/delete/{boardSeq}")
 	public void boardDelete(@PathVariable long boardSeq) {
 		boardService.boardDelete(boardSeq);
 	}
+	
+	
 }

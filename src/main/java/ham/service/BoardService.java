@@ -17,4 +17,8 @@ public interface BoardService {
 	public void boardDelete(long boardSeq);
 
 	public void boardFav(BoardDTO boardDTO);
+
+	public List<BoardDTO> boardListHome(int type);
+
+	public BoardDTO boardBest(int type);
 }
