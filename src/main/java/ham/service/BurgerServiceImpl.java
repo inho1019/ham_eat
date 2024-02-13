@@ -103,4 +103,14 @@ public class BurgerServiceImpl implements BurgerService {
 	public List<Object> burgerListAll() {
 		return burgerDAO.selectAllJoin();
 	}
+
+	@Override
+	public List<StoreDTO> storeListAll(int type) {
+		return storeDAO.findAll();
+	}
+
+	@Override
+	public List<RatingDTO> ratingListAll() {
+		return ratingDAO.findAll();
+	}
 }

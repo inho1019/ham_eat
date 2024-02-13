@@ -55,6 +55,11 @@ public class BurgerController {
 		return list;
 	}
 	
+	@GetMapping(value="store/listAll")
+	public List<StoreDTO> storeListAll(@PathVariable int type) {
+		return burgerService.storeListAll(type);
+	}
+	
 	@GetMapping(value="ingre/list")
 	public List<IngreDTO> ingreList() {
 		return burgerService.ingreList();
@@ -73,6 +78,11 @@ public class BurgerController {
 	@GetMapping(value="burger/listHome/{type}")
 	public List<BurgerDTO> burgerListHome(@PathVariable int type) {
 		return burgerService.burgerListHome(type);
+	}
+	
+	@GetMapping(value="rating/listAll")
+	public List<RatingDTO> ratingListAll() {
+		return burgerService.ratingListAll();
 	}
 	
 	@GetMapping(value="rating/listType/{type}")
