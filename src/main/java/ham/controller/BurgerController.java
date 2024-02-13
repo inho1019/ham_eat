@@ -56,8 +56,8 @@ public class BurgerController {
 	}
 	
 	@GetMapping(value="store/listAll")
-	public List<StoreDTO> storeListAll(@PathVariable int type) {
-		return burgerService.storeListAll(type);
+	public List<StoreDTO> storeListAll() {
+		return burgerService.storeListAll();
 	}
 	
 	@GetMapping(value="ingre/list")

@@ -39,7 +39,7 @@ public interface BurgerService {
 
 	public List<Object> burgerListAll();
 
-	public List<StoreDTO> storeListAll(int type);
+	public List<StoreDTO> storeListAll();
 
 	public List<RatingDTO> ratingListAll();
 

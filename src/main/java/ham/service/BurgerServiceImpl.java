@@ -105,7 +105,7 @@ public class BurgerServiceImpl implements BurgerService {
 	}
 
 	@Override
-	public List<StoreDTO> storeListAll(int type) {
+	public List<StoreDTO> storeListAll() {
 		return storeDAO.findAll();
 	}
 
