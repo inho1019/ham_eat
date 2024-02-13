@@ -20,4 +20,7 @@ public interface BurgerDAO extends JpaRepository<BurgerDTO,Long> {
 	@Query("SELECT b, u FROM BurgerDTO b LEFT JOIN UserDTO u ON b.userSeq = u.userSeq WHERE b.burgerSeq = :burgerSeq")
 	Object oneSeqJoin(@Param("burgerSeq") long burgerSeq);
 
+	@Query("SELECT b, u FROM BurgerDTO b LEFT JOIN UserDTO u ON b.userSeq = u.userSeq ORDER BY b.burgerSeq DESC")
+	List<Object> selectAllJoin();
+
 }

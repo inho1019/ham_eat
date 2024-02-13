@@ -118,4 +118,9 @@ public class BoardServiceImpl implements BoardService {
 		return getRandomElement(boardList.subList(0, Math.min(5, boardList.size())));
 	}
 
+	@Override
+	public List<Object> boardListAll() {
+		return boardDAO.selectAllJoin();
+	}
+
 }

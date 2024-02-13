@@ -23,4 +23,7 @@ public interface BoardDAO extends JpaRepository<BoardDTO,Long> {
 
 	@Query("SELECT b FROM BoardDTO b WHERE b.type = :type AND b.logTime >= :setMonth")
 	List<BoardDTO> getListTypeMonth(@Param("type") int type, @Param("setMonth") LocalDateTime setMonth);
+
+	@Query("SELECT b, u FROM BoardDTO b LEFT JOIN UserDTO u ON b.userSeq = u.userSeq ORDER BY b.boardSeq DESC")
+	List<Object> selectAllJoin();
 }

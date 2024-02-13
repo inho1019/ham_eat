@@ -37,6 +37,11 @@ public class BoardController {
 		return boardService.boardList(type);
 	}
 	
+	@GetMapping(value="board/listAll")
+	public List<Object> boardListAll() {
+		return boardService.boardListAll();
+	}
+	
 	@GetMapping(value="board/listHome/{type}")
 	public List<BoardDTO> boardListHome(@PathVariable int type) {
 		return boardService.boardListHome(type);

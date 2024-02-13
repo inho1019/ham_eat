@@ -37,4 +37,6 @@ public interface BurgerService {
 
 	public boolean storeCheck(String placeId);
 
+	public List<Object> burgerListAll();
+
 }

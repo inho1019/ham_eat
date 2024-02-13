@@ -98,4 +98,9 @@ public class BurgerServiceImpl implements BurgerService {
 		
 		return storeDTO.isPresent();
 	}
+
+	@Override
+	public List<Object> burgerListAll() {
+		return burgerDAO.selectAllJoin();
+	}
 }

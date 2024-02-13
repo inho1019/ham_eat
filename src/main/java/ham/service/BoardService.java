@@ -21,4 +21,6 @@ public interface BoardService {
 	public List<BoardDTO> boardListHome(int type);
 
 	public BoardDTO boardBest(int type);
+
+	public List<Object> boardListAll();
 }
