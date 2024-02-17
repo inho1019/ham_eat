@@ -113,4 +113,9 @@ public class BurgerServiceImpl implements BurgerService {
 	public List<RatingDTO> ratingListAll() {
 		return ratingDAO.findAll();
 	}
+
+	@Override
+	public List<RatingDTO> ratingListNew() {
+		return ratingDAO.findFirst8OrderByRatingSeqDesc();
+	}
 }

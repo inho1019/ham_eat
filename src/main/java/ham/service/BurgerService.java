@@ -43,4 +43,6 @@ public interface BurgerService {
 
 	public List<RatingDTO> ratingListAll();
 
+	public List<RatingDTO> ratingListNew();
+
 }

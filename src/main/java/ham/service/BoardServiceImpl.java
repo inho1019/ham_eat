@@ -88,7 +88,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public BoardDTO boardBest(int type) {
-		LocalDateTime setMonth = LocalDateTime.now().minusDays(30);
+		LocalDateTime setMonth = LocalDateTime.now().minusDays(7);
 		
 		List<BoardDTO> boardList = boardDAO.getListTypeMonth(type,setMonth);
 		
@@ -115,7 +115,7 @@ public class BoardServiceImpl implements BoardService {
 		    }
 		}, Comparator.reverseOrder()));
 		
-		return getRandomElement(boardList.subList(0, Math.min(5, boardList.size())));
+		return getRandomElement(boardList.subList(0, Math.min(3, boardList.size())));
 	}
 
 	@Override
