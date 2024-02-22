@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import ham.bean.CarouselDTO;
 import ham.bean.IngreDTO;
 import ham.bean.UserDTO;
+import ham.service.CarouselService;
 import ham.service.EmailService;
 import ham.service.UserService;
 import jakarta.mail.MessagingException;
@@ -26,6 +28,9 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private CarouselService carouselService;
 		
 	@Autowired
     private EmailService emailService;
@@ -65,6 +70,7 @@ public class UserController {
 		return userService.register(userDTO);
 	}
 	
+	
 	@PostMapping("user/login")
 	public Map<String,Object> login(@RequestBody UserDTO userDTO) {
 		return userService.login(userDTO);
@@ -86,6 +92,22 @@ public class UserController {
 	@DeleteMapping("user/delete/{userSeq}")
 	public boolean delete(@PathVariable Long userSeq) {
 		return userService.delete(userSeq);
+	}
+	
+	@PostMapping("carousel/write")
+	public CarouselDTO carouselWrite(@RequestBody CarouselDTO carouselDTO) {
+		carouselService.carouselWrite(carouselDTO);
+		return carouselDTO;
+	}
+	
+	@GetMapping("carousel/list")
+	public List<CarouselDTO> carouselList() {
+		return carouselService.carouselList();
+	}
+	
+	@DeleteMapping("carousel/delete/{carouselSeq}")
+	public void carouselDelete(@PathVariable("carouselSeq") Long carouselSeq) {
+		carouselService.carouselDelete(carouselSeq);
 	}
 	
 	@GetMapping(value="ping")

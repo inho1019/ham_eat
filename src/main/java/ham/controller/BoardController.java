@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ham.bean.BoardDTO;
 import ham.bean.BurgerDTO;
+import ham.bean.CommentDTO;
 import ham.service.BoardService;
+import ham.service.CommentService;
 
 @RestController
 public class BoardController {
@@ -21,10 +23,19 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 	
+	@Autowired
+	private CommentService commentService;
+	
 	@PostMapping(value="board/write")
 	public BoardDTO boardWrite(@RequestBody BoardDTO boardDTO) {
 		boardService.boardWrite(boardDTO);
 		return boardDTO;
+	}
+	
+	@PostMapping(value="comment/write")
+	public CommentDTO commentWrite(@RequestBody CommentDTO commentDTO) {
+		commentService.commentWrite(commentDTO);
+		return commentDTO;
 	}
 	
 	@PutMapping(value="board/fav")
@@ -35,6 +46,11 @@ public class BoardController {
 	@GetMapping(value="board/list/{type}")
 	public List<Object> boardList(@PathVariable int type) {
 		return boardService.boardList(type);
+	}
+	
+	@GetMapping(value="comment/list/{boardSeq}")
+	public List<Object> commentList(@PathVariable("boardSeq") long boardSeq) {
+		return commentService.commentList(boardSeq);
 	}
 	
 	@GetMapping(value="board/listAll")
@@ -62,9 +78,15 @@ public class BoardController {
 		
 		boardService.boardUpdate(boardDTO);
 	}
+	
 	@DeleteMapping(value="board/delete/{boardSeq}")
 	public void boardDelete(@PathVariable long boardSeq) {
 		boardService.boardDelete(boardSeq);
+	}
+	
+	@DeleteMapping(value="comment/delete/{commentSeq}")
+	public void commentDelete(@PathVariable("commentSeq") long commentSeq) {
+		commentService.commentDelete(commentSeq);
 	}
 	
 	
