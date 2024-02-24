@@ -20,4 +20,10 @@ public interface UserService {
 	public boolean checkPwd(UserDTO userDTO);
 
 	public boolean delete(long userSeq);
+
+	public void putSecretKey(long userSeq, String secret);
+
+	public String getSecretKey(long userSeq);
+
+	public UserDTO getUserDTO(long parseLong);
 }

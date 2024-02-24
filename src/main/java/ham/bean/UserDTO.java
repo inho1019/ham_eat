@@ -32,6 +32,9 @@ public class UserDTO {
 	@Column(name="email",nullable = false,length = 200)//칼럼 조건 지정
 	private String email;
 	
+	@Column(name="secretKey",nullable = false,length = 200)//칼럼 조건 지정
+	private String secretKey;
+	
 	@Column(name="gender",nullable = false)//칼럼 조건 지정
 	private int gender;	
 	

@@ -110,4 +110,22 @@ public class UserServiceImpl implements UserService {
 			return false;
 		}
 	}
+
+
+	@Override
+	public void putSecretKey(long userSeq, String secret) {
+		UserDTO userDTO = userDAO.findById(userSeq).orElse(null);
+		userDTO.setSecretKey(secret);
+		userDAO.save(userDTO);
+	}
+
+	@Override
+	public String getSecretKey(long userSeq) {
+		return userDAO.findSecretKeyByUserSeq(userSeq);
+	}
+
+	@Override
+	public UserDTO getUserDTO(long userSeq) {
+		return userDAO.findById(userSeq).orElse(null);
+	}
 }
