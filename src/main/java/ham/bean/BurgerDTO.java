@@ -25,6 +25,9 @@ public class BurgerDTO {
 	@Column(name="type",nullable = false)
 	private int type;
 	
+	@Column(name="status",nullable = false)
+	private int status;
+	
 	@Column(name="storeSeq",nullable = true)
 	private long storeSeq;	
 	

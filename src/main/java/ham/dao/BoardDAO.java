@@ -13,7 +13,7 @@ import ham.bean.BoardDTO;
 @Repository
 public interface BoardDAO extends JpaRepository<BoardDTO,Long> {
 	
-	@Query("SELECT b, u FROM BoardDTO b LEFT JOIN UserDTO u ON b.userSeq = u.userSeq WHERE b.type = :type ORDER BY b.boardSeq DESC")
+	@Query("SELECT b, u, COUNT(c) FROM BoardDTO b LEFT JOIN UserDTO u ON b.userSeq = u.userSeq LEFT JOIN CommentDTO c ON b.boardSeq = c.boardSeq WHERE b.type = :type GROUP BY b, u ORDER BY b.boardSeq DESC")
 	List<Object> selectTypeJoin(int type);
 
 	@Query("SELECT b, u FROM BoardDTO b LEFT JOIN UserDTO u ON b.userSeq = u.userSeq WHERE b.boardSeq = :boardSeq")
@@ -24,6 +24,6 @@ public interface BoardDAO extends JpaRepository<BoardDTO,Long> {
 	@Query("SELECT b FROM BoardDTO b WHERE b.type = :type AND b.logTime >= :setMonth")
 	List<BoardDTO> getListTypeMonth(@Param("type") int type, @Param("setMonth") LocalDateTime setMonth);
 
-	@Query("SELECT b, u FROM BoardDTO b LEFT JOIN UserDTO u ON b.userSeq = u.userSeq ORDER BY b.boardSeq DESC")
+	@Query("SELECT b, u, COUNT(c) FROM BoardDTO b LEFT JOIN UserDTO u ON b.userSeq = u.userSeq LEFT JOIN CommentDTO c ON b.boardSeq = c.boardSeq GROUP BY b, u ORDER BY b.boardSeq DESC")
 	List<Object> selectAllJoin();
 }

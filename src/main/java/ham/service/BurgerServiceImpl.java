@@ -6,14 +6,18 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ham.bean.BoardDTO;
 import ham.bean.BurgerDTO;
 import ham.bean.IngreDTO;
 import ham.bean.RatingDTO;
+import ham.bean.StatusDTO;
 import ham.bean.StoreDTO;
 import ham.dao.BurgerDAO;
 import ham.dao.IngreDAO;
 import ham.dao.RatingDAO;
+import ham.dao.StatusDAO;
 import ham.dao.StoreDAO;
+import jakarta.transaction.Transactional;
 
 @Service
 public class BurgerServiceImpl implements BurgerService {
@@ -26,6 +30,8 @@ public class BurgerServiceImpl implements BurgerService {
 	private IngreDAO ingreDAO;
 	@Autowired
 	private RatingDAO ratingDAO;
+	@Autowired
+	private StatusDAO statusDAO;
 
 	@Override
 	public void burgerWrite(BurgerDTO burgerDTO) {
@@ -117,5 +123,76 @@ public class BurgerServiceImpl implements BurgerService {
 	@Override
 	public List<RatingDTO> ratingListNew() {
 		return ratingDAO.findFirst8ByOrderByRatingSeqDesc();
+	}
+
+	@Override
+	@Transactional
+	public int statusWrite(StatusDTO statusDTO) {
+		try {
+			if(statusDAO.findByTypeAndBurgerSeqAndUserSeq(
+					statusDTO.getType(),statusDTO.getBurgerSeq(),statusDTO.getUserSeq()).isPresent()) {
+				return 0;
+			} else {
+				if(statusDTO.getType() == 0) {
+					statusDAO.save(statusDTO);
+					return 1;
+				}else {
+					if(statusDAO.findByTypeAndBurgerSeqAndReq(
+							statusDTO.getType(),statusDTO.getBurgerSeq(),statusDTO.getReq()).isPresent()) {	
+						
+						statusDAO.deleteAllByTypeAndBurgerSeq(statusDTO.getType(),statusDTO.getBurgerSeq());
+						
+						Optional<BurgerDTO> opDTO = burgerDAO.findById(statusDTO.getBurgerSeq());
+						
+						opDTO.ifPresent(dto -> {
+							dto.setPrice(statusDTO.getReq());	
+							burgerDAO.save(dto);
+					    });
+						
+						return 2;
+					} else {
+						statusDAO.save(statusDTO);
+						return 1;
+					}
+				}
+			}
+		} catch (Exception e) {
+	        System.out.println(e);
+	        return -1;
+	    }
+	}
+
+	@Override
+	public void burgerStatus(long burgerSeq) {
+		List<StatusDTO> statusList = statusDAO.findAllByTypeAndBurgerSeq(0,burgerSeq);
+		int a = 0;
+		int b = 0;
+		
+		for (StatusDTO item : statusList) {
+		    if (item.getReq() == 0) {
+		        a += 1;
+		    } else if (item.getReq() == 1) {
+		        b += 1;
+		    }
+		}
+		
+		Optional<BurgerDTO> opDTO = burgerDAO.findById(burgerSeq);
+		
+		if( a >= b ) {
+			opDTO.ifPresent(dto -> {
+				dto.setStatus(0);
+				burgerDAO.save(dto);
+		    });
+		}else {
+			opDTO.ifPresent(dto -> {
+				dto.setStatus(1);
+				burgerDAO.save(dto);
+		    });
+		}
+	}
+
+	@Override
+	public List<StatusDTO> statusList(long burgerSeq) {
+		return statusDAO.findAllByTypeAndBurgerSeq(1,burgerSeq);
 	}
 }

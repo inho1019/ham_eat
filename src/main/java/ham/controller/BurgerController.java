@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ham.bean.BurgerDTO;
 import ham.bean.IngreDTO;
 import ham.bean.RatingDTO;
+import ham.bean.StatusDTO;
 import ham.bean.StoreDTO;
 import ham.service.BurgerService;
 
@@ -118,5 +119,20 @@ public class BurgerController {
 	@DeleteMapping(value="rating/delete/{ratingSeq}")
 	public void ratingDelete(@PathVariable long ratingSeq) {
 		burgerService.ratingDelete(ratingSeq);
+	}
+	
+	@PostMapping(value="status/write")
+	public int statusWrite(@RequestBody StatusDTO statusDTO) {
+		return burgerService.statusWrite(statusDTO);
+	}
+	
+	@GetMapping(value="burger/status/{burgerSeq}")
+	public void burgerStatus(@PathVariable long burgerSeq) {
+		burgerService.burgerStatus(burgerSeq);
+	}
+	
+	@GetMapping(value="status/list/{burgerSeq}")
+	public List<StatusDTO> statusList(@PathVariable long burgerSeq) {
+		return burgerService.statusList(burgerSeq);
 	}
 }

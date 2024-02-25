@@ -5,6 +5,7 @@ import java.util.List;
 import ham.bean.BurgerDTO;
 import ham.bean.IngreDTO;
 import ham.bean.RatingDTO;
+import ham.bean.StatusDTO;
 import ham.bean.StoreDTO;
 
 public interface BurgerService {
@@ -44,5 +45,11 @@ public interface BurgerService {
 	public List<RatingDTO> ratingListAll();
 
 	public List<RatingDTO> ratingListNew();
+
+	public int statusWrite(StatusDTO statusDTO);
+
+	public void burgerStatus(long burgerSeq);
+
+	public List<StatusDTO> statusList(long burgerSeq);
 
 }
