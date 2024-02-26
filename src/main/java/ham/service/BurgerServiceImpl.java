@@ -210,4 +210,10 @@ public class BurgerServiceImpl implements BurgerService {
 	public void burgerUpdate(BurgerDTO burgerDTO) {
 		burgerDAO.save(burgerDTO);
 	}
+
+	@Override
+	@Transactional
+	public void ratingUpdateType(BurgerDTO burgerDTO) {
+		ratingDAO.updateRatingType(burgerDTO.getType(),burgerDTO.getBurgerSeq());
+	}
 }

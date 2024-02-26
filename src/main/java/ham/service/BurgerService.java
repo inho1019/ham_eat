@@ -58,4 +58,6 @@ public interface BurgerService {
 
 	public void burgerUpdate(BurgerDTO burgerDTO);
 
+	public void ratingUpdateType(BurgerDTO burgerDTO);
+
 }

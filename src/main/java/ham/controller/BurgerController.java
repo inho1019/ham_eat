@@ -151,4 +151,9 @@ public class BurgerController {
 	public void burgerUpdate(@RequestBody BurgerDTO burgerDTO) {
 		burgerService.burgerUpdate(burgerDTO);
 	}
+	
+	@PutMapping(value="rating/updateType")
+	public void ratingUpdateType(@RequestBody BurgerDTO burgerDTO) {
+		burgerService.ratingUpdateType(burgerDTO);
+	}
 }

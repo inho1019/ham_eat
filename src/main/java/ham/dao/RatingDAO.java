@@ -3,6 +3,7 @@ package ham.dao;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -27,5 +28,8 @@ public interface RatingDAO extends JpaRepository<RatingDTO,Long> {
 	List<Object> selSeqJoin(@Param("burgerSeq") long burgerSeq);
 
 	List<RatingDTO> findFirst8ByOrderByRatingSeqDesc();
-	
+
+	@Modifying
+	@Query("UPDATE RatingDTO r SET r.type = :type WHERE r.burgerSeq = :burgerSeq")
+	void updateRatingType(@Param("type") int type, @Param("burgerSeq") long burgerSeq);
 }
