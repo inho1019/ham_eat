@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -81,6 +82,11 @@ public class BurgerController {
 		return burgerService.burgerListHome(type);
 	}
 	
+	@DeleteMapping(value="burger/delete/{burgerSeq}")
+	public void burgerDelete(@PathVariable long burgerSeq) {
+		burgerService.burgerDelete(burgerSeq);
+	}
+	
 	@GetMapping(value="rating/listAll")
 	public List<RatingDTO> ratingListAll() {
 		return burgerService.ratingListAll();
@@ -126,6 +132,11 @@ public class BurgerController {
 		return burgerService.statusWrite(statusDTO);
 	}
 	
+	@DeleteMapping(value="status/delete/{statusSeq}")
+	public void statusDelete(@PathVariable long statusSeq) {
+		burgerService.statusDelete(statusSeq);
+	}
+	
 	@GetMapping(value="burger/status/{burgerSeq}")
 	public void burgerStatus(@PathVariable long burgerSeq) {
 		burgerService.burgerStatus(burgerSeq);
@@ -134,5 +145,10 @@ public class BurgerController {
 	@GetMapping(value="status/list/{burgerSeq}")
 	public List<StatusDTO> statusList(@PathVariable long burgerSeq) {
 		return burgerService.statusList(burgerSeq);
+	}
+	
+	@PutMapping(value="burger/update")
+	public void burgerUpdate(@RequestBody BurgerDTO burgerDTO) {
+		burgerService.burgerUpdate(burgerDTO);
 	}
 }

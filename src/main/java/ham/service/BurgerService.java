@@ -52,4 +52,10 @@ public interface BurgerService {
 
 	public List<StatusDTO> statusList(long burgerSeq);
 
+	public void statusDelete(long statusSeq);
+
+	public void burgerDelete(long burgerSeq);
+
+	public void burgerUpdate(BurgerDTO burgerDTO);
+
 }

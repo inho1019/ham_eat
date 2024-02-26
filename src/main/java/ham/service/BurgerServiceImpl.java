@@ -195,4 +195,19 @@ public class BurgerServiceImpl implements BurgerService {
 	public List<StatusDTO> statusList(long burgerSeq) {
 		return statusDAO.findAllByTypeAndBurgerSeq(1,burgerSeq);
 	}
+
+	@Override
+	public void statusDelete(long statusSeq) {
+		statusDAO.deleteById(statusSeq);
+	}
+
+	@Override
+	public void burgerDelete(long burgerSeq) {
+		burgerDAO.deleteById(burgerSeq);
+	}
+
+	@Override
+	public void burgerUpdate(BurgerDTO burgerDTO) {
+		burgerDAO.save(burgerDTO);
+	}
 }
