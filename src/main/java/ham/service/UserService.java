@@ -1,8 +1,10 @@
 package ham.service;
 
+import java.util.List;
 import java.util.Map;
 
 import ham.bean.UserDTO;
+import ham.bean.VariDTO;
 import ham.controller.UserController.UpdateDTO;
 
 public interface UserService {
@@ -26,4 +28,10 @@ public interface UserService {
 	public String getSecretKey(long userSeq);
 
 	public UserDTO getUserDTO(long parseLong);
+
+	public List<UserDTO> userList();
+
+	public void variSet(VariDTO variDTO);
+
+	public String variGet(String name);
 }

@@ -40,6 +40,9 @@ public class BoardDTO {
 	@Column(name="hit",nullable = false)
 	private int hit;
 	
+	@Column(name="secret",nullable = false)
+	private int secret;
+	
 	@Column(name="fav",nullable = false,columnDefinition = "TEXT")
 	private String fav;
 	

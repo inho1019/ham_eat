@@ -1,6 +1,7 @@
 package ham.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -9,14 +10,18 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import ham.bean.UserDTO;
-import ham.controller.UserController.UpdateDTO;
+import ham.bean.VariDTO;
 import ham.dao.UserDAO;
+import ham.dao.VariDAO;
 
 @Service
 public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserDAO userDAO;
+	
+	@Autowired
+	private VariDAO variDAO;
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
@@ -74,15 +79,17 @@ public class UserServiceImpl implements UserService {
 		try {
 			if(field == 0) {
 				userDTO.setName(value);
-			}else if(field == 1) {
+			} else if(field == 1) {
 				userDTO.setPwd(passwordEncoder.encode(value));
+			} else if(field == 2) {
+				userDTO.setOwn(Integer.parseInt(value));
 			}
 			
 			userDAO.save(userDTO);
 			
 			return true;
 		} catch(Exception e) {
-			System.out.println("닉네임 변경 중 오류 발생 :: " + e);
+			System.out.println("변경 중 오류 발생 :: " + e);
 			
 			return false;
 		}
@@ -127,5 +134,29 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserDTO getUserDTO(long userSeq) {
 		return userDAO.findById(userSeq).orElse(null);
+	}
+
+	@Override
+	public List<UserDTO> userList() {
+		return userDAO.findAll();
+	}
+
+	@Override
+	public void variSet(VariDTO variDTO) {
+		
+		Optional<VariDTO> opDTO = variDAO.findByName(variDTO.getName());
+		
+		if(opDTO.isPresent()) {
+			VariDTO upDTO = opDTO.orElse(null);
+			upDTO.setValu(variDTO.getValu());
+			variDAO.save(upDTO);
+		} else {
+			variDAO.save(variDTO);
+		}
+	}
+
+	@Override
+	public String variGet(String name) {
+		return variDAO.findByName(name).orElse(null).getValu();
 	}
 }

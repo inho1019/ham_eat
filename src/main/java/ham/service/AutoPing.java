@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import ham.dao.StatusDAO;
+import jakarta.transaction.Transactional;
 
 @Component
 public class AutoPing {
@@ -25,6 +26,7 @@ public class AutoPing {
     }
 	
 	@Scheduled(cron = "0 0 0 * * *")
+	@Transactional
 	public void statusControll() {
 		LocalDateTime thirtyDaysAgo = LocalDateTime.now().minus(30, ChronoUnit.DAYS);
 	    statusDAO.deleteAllByTypeAndLogTimeBefore(0, thirtyDaysAgo);
