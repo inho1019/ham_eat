@@ -216,4 +216,9 @@ public class BurgerServiceImpl implements BurgerService {
 	public void ratingUpdateType(BurgerDTO burgerDTO) {
 		ratingDAO.updateRatingType(burgerDTO.getType(),burgerDTO.getBurgerSeq());
 	}
+
+	@Override
+	public BurgerDTO burgerRandom() {
+		return burgerDAO.getRandomBurger();
+	}
 }

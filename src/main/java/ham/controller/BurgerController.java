@@ -156,4 +156,9 @@ public class BurgerController {
 	public void ratingUpdateType(@RequestBody BurgerDTO burgerDTO) {
 		burgerService.ratingUpdateType(burgerDTO);
 	}
+	
+	@GetMapping(value="burger/random")
+	public BurgerDTO burgerRandom() {
+		return burgerService.burgerRandom();
+	}
 }

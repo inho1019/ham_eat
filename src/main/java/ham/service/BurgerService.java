@@ -60,4 +60,6 @@ public interface BurgerService {
 
 	public void ratingUpdateType(BurgerDTO burgerDTO);
 
+	public BurgerDTO burgerRandom();
+
 }

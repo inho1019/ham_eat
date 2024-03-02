@@ -23,4 +23,6 @@ public interface BurgerDAO extends JpaRepository<BurgerDTO,Long> {
 	@Query("SELECT b, u FROM BurgerDTO b LEFT JOIN UserDTO u ON b.userSeq = u.userSeq ORDER BY b.burgerSeq DESC")
 	List<Object> selectAllJoin();
 
+	@Query(value = "SELECT * FROM burger WHERE type = 0 AND status = 0 ORDER BY RAND() LIMIT 1", nativeQuery = true)
+	BurgerDTO getRandomBurger();
 }
