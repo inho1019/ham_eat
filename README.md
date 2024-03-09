@@ -1,6 +1,6 @@
 ### 다운로드(APK ) - playconsole에서 서명 완료 ,지속 업데이트 중
 
-[**다운로드 링크(구글 드라이브)**](https://drive.google.com/file/d/1fs-VE82ATBGb1n_Hfcxf7expfPWpqd10/view?usp=drive_link)
+[**다운로드 링크(구글 드라이브)**](https://drive.google.com/file/d/1TStkUUNRNFJ1gotciD4uVcjIdPXr7PD9)
 
 ### 분류
 
