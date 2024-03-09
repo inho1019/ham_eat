@@ -29,6 +29,6 @@ public class AutoPing {
 	@Transactional
 	public void statusControll() {
 		LocalDateTime thirtyDaysAgo = LocalDateTime.now().minus(30, ChronoUnit.DAYS);
-	    statusDAO.deleteAllByTypeAndLogTimeBefore(0, thirtyDaysAgo);
+	    statusDAO.deleteDataAuto(0, thirtyDaysAgo);
 	}
 }

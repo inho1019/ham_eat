@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
@@ -30,6 +31,7 @@ public interface StatusDAO extends JpaRepository<StatusDTO,Long> {
 									 @Param("burgerSeq") long burgerSeq);
 
 	@Modifying
-    @Transactional
-	void deleteAllByTypeAndLogTimeBefore(@Param("type") int type, LocalDateTime thirtyDaysAgo);
+	@Transactional
+	@Query("DELETE FROM StatusDTO s WHERE s.type = :type AND s.logTime < :thirtyDaysAgo")
+	void deleteDataAuto(@Param("type") int type, @Param("thirtyDaysAgo") LocalDateTime thirtyDaysAgo);
 }
